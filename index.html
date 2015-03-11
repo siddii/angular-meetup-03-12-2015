@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Material Design in AngularJS</title>
+
+		<meta name="description" content="Material Design in AngularJS">
+		<meta name="author" content="Siddique Hameed">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+        <style type="text/css">
+            .reveal h2 {
+                text-transform: none;
+            }
+            .reveal h3 {
+                text-transform: none;
+            }
+            .reveal h6 {
+                text-transform: none;
+            }
+            .reveal h2 {
+                text-transform: none;
+            }
+            .reveal .intro {
+                color: #ffffff;
+            }
+        </style>
+    </head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+				<section class="intro" data-background="images/IMG_3734.jpg" data-transition="zoom">
+					<h1 style="color: #ffffff;">Material Design in AngularJS</h1>
+						<h4 style="color: #ffffff;">By</h4>
+						<h5 style="color: #ffffff;">Siddique Hameed</h5>
+                        <I style="color: #ffffff;"><a target="_new" href="http://twitter.com/siddii">@siddii</a> - <a target="_new" href="http://github.com/siddii">http://github.com/siddii</a></I><br/>
+                        <h6 style="color: #ffffff;">03/12/2015</h6>
+				</section>
+
+				<section>
+					<h2>Philosophy...</h2>
+                    <ul>
+                        <li class="fragment">Material is a metaphor</li>
+                        <li class="fragment">Unified visual language across devices & platforms</li>
+                        <li class="fragment">Bold, graphic, intentional</li>
+                        <li class="fragment">It's a 3D world we live in...</li>
+                        <li class="fragment">Lights & shadows can mean a lot</li>
+                        <li class="fragment">Meaningful motions (transitions & animations)</li>
+                        <li class="fragment">Touch, voice, mouse & keyboard are all first-class input methods</li>
+                        <li class="fragment">Responsive</li>
+                        <li class="fragment">Accessibility & BIDI(RTL & LTR language) Support</li>
+                    </ul>
+				</section>
+
+                <section data-transition="slide" data-background-transition="slide">
+                    <h2>Commercial...</h2>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/Q8TXgCzxEnw" frameborder="0" allowfullscreen></iframe>
+                </section>
+
+                <section data-transition="slide" data-background-transition="slide">
+                    <h2>Retro</h2>
+                    <iframe width="640" height="480" src="https://www.youtube.com/embed/UjuNGpU29Mk?rel=0" frameborder="0" allowfullscreen></iframe>
+                </section>
+
+                <section data-transition="slide" data-background-transition="random">
+                    <b>Material Properties</b>
+                    <table>
+                        <tr>
+                            <td class="fragment" style="text-align: center;">
+                                <span>Do</span>
+                                <img border="0" src="http://material-design.storage.googleapis.com/publish/v_2/material_ext_publish/0B8v7jImPsDi-aTBFT1FDVEstenM/whatismaterial_materialproperties_physicalproperties_thickness_01_yes.png"/><br/>
+                                <i style="font-size: 50%">Always 1 density percentage (dp) thick</i>
+                            </td>
+                            <td class="fragment" style="text-align: center;color: red;">
+                                <span>Don't</span>
+                                <img border="0" src="http://material-design.storage.googleapis.com/publish/v_2/material_ext_publish/0B8v7jImPsDi-Sno0Qy1FY3UtaFk/whatismaterial_materialproperties_physicalproperties_thickness_02_no.png"/><br/>
+                                <i style="font-size: 50%">Variable thickness</i>
+                            </td>
+                        </tr>
+                    </table>
+                </section>
+
+
+                <section data-background-transition="random">
+                    <b>Material is Solid</b>
+                    <table width="100%">
+                        <tr>
+                            <td class="fragment" style="text-align: center;">
+                                <span>Do</span><br/>
+                                <img style="width: 360px; height: 360px;" src="http://material-design.storage.googleapis.com/publish/v_2/material_ext_publish/0Bx4BSt6jniD7bDZac2JGV2RUNk0/whatismaterial_properties_physical3.png"/><br/>
+                                <i style="font-size: 50%">Input events cannot pass through material.</i>
+                            </td>
+                            <td class="fragment" style="text-align: center;color: red;">
+                                <span>Don't</span><br/>
+                                <img style="width: 360px; height: 360px;" src="http://material-design.storage.googleapis.com/publish/v_2/material_ext_publish/0Bx4BSt6jniD7RVdsUWRKN2xlaGc/whatismaterial_properties_physical4.png"/><br/>
+                                <i style="font-size: 50%">Events are passing through material.</i>
+                            </td>
+                        </tr>
+                    </table>
+                </section>
+
+                <section data-background-transition="random">
+                    <B>Elements cannot occupy same point in space simultaneously</B>
+                    <table width="100%">
+                        <tr>
+                            <td class="fragment" style="text-align: center;">
+                                <span>Do</span><br/>
+                                <img src="http://material-design.storage.googleapis.com/publish/v_2/material_ext_publish/0Bx4BSt6jniD7aVhXV0EtZ29OSU0/whatismaterial_properties_physical5.png"/><br/>
+                            </td>
+                            <td class="fragment" style="text-align: center;color: red;">
+                                <span>Don't</span><br/>
+                                <img src="http://material-design.storage.googleapis.com/publish/v_2/material_ext_publish/0Bx4BSt6jniD7UFdUMnRKaW5PSXM/whatismaterial_properties_physical6.png"/><br/>
+                            </td>
+                        </tr>
+                    </table>
+                </section>
+
+                <section data-background-transition="random">
+                    <b>Authentic motion</b>
+                    <table class="stretch" style="padding-top: 70px;">
+                        <tr>
+                            <td class="fragment" style="text-align: center;">
+                                <span>Do</span><br/>
+                                <video controls loop="true" tabindex="0">
+                                    <source src="http://material-design.storage.googleapis.com/publish/v_2/material_ext_publish/0B2wX4iIvu8L6SERxSXVhMVpsd1E/animation-authenticmotion-massandweight-ex1_xhdpi.webm" type="video/webm">
+                                    <source src="http://material-design.storage.googleapis.com/publish/v_2/material_ext_publish/0B2wX4iIvu8L6SXl5UUtsc09ZUFU/animation-authenticmotion-massandweight-ex1_xhdpi.mp4" type="video/mp4">
+                                </video>
+                                <i style="font-size: 50%">Swift acceleration & gentle deceleration feels more authentic</i>
+                            </td>
+                            <td class="fragment" style="text-align: center;color: red;">
+                                <span>Don't</span><br/>
+                                <video controls loop="true" tabindex="0">
+                                    <source src="http://material-design.storage.googleapis.com/publish/v_2/material_ext_publish/0B2wX4iIvu8L6c0wwY2FPSVdnYlk/animation-authenticmotion-massandweight-ex2_xhdpi.webm" type="video/webm">
+                                    <source src="http://material-design.storage.googleapis.com/publish/v_2/material_ext_publish/0B2wX4iIvu8L6TWtqQi16MDhpRm8/animation-authenticmotion-massandweight-ex2_xhdpi.mp4" type="video/mp4">
+                                </video>
+                                <i style="font-size: 50%">Linear motion is mechanical</i>
+                            </td>
+                        </tr>
+                    </table>
+                </section>
+
+                <section data-background-transition="random">
+                    <b>Consistent choreography</b>
+                    <table class="stretch">
+                        <tr>
+                            <td class="fragment" style="text-align: center;">
+                                <span>Do</span><br/>
+                                <video controls loop="true" tabindex="0">
+                                    <source src="http://material-design.storage.googleapis.com/publish/v_2/material_ext_publish/0B08MbvYZK1iNT2dLWHE1NG8tV00/animation-meaningfultransitions-consistentchoreography-do1_large_xhdpi.webm" type="video/webm">
+                                    <source src="http://material-design.storage.googleapis.com/publish/v_2/material_ext_publish/0B08MbvYZK1iNMVY1TUdwblJ3cGs/animation-meaningfultransitions-consistentchoreography-do1_large_xhdpi.mp4" type="video/mp4">
+                                </video>
+                                <i style="font-size: 50%">Coordinated, orderly motion</i>
+                            </td>
+                            <td class="fragment" style="text-align: center;color: red;">
+                                <span>Don't</span><br/>
+                                <video controls loop="true" tabindex="0">
+                                    <source src="http://material-design.storage.googleapis.com/publish/v_2/material_ext_publish/0B08MbvYZK1iNVXhDdy1NUF8zMDg/animation-meaningfultransitions-consistentchoreography-dont3_large_xhdpi.webm" type="video/webm">
+                                    <source src="http://material-design.storage.googleapis.com/publish/v_2/material_ext_publish/0B08MbvYZK1iNR0ZlR1BRd0doWFE/animation-meaningfultransitions-consistentchoreography-dont3_large_xhdpi.mp4" type="video/mp4">
+                                </video>
+                                <i style="font-size: 50%">Inconsistent disorderly motions seems random</i>
+                            </td>
+                        </tr>
+                    </table>
+                </section>
+
+                <section data-background-transition="random">
+                    <b>Angular Material vs. Polymer</b>
+                    <ul>
+                        <li>Polymer is Google's reference implementation of <b>Web Components</b></li>
+                        <li>Polymer's Paper Elements is a reference implementation of Google's material design spec -
+                            <a href="https://www.polymer-project.org/0.5/components/paper-elements/demo.html#core-toolbar">https://www.polymer-project.org/0.5/components/paper-elements/demo.html#core-toolbar</a>
+                        </li>
+                        <li>Angular Material is Angular's implementation of material design spec</li>
+                        <li>So, <b>Angular Material</b> != <b>Polymer</b></li>
+                    </ul>
+                </section>
+
+                <section data-background-transition="random">
+                    <h3>So, what is <i>Web Components</i> anyway?</h3>
+                    <p>
+                    <ul>
+                        <li class="fragment">Helps build custom HTML components. Remember Directives in Angular?</li>
+                        <li class="fragment">HTML imports are ways to reuse HTML components in another document</li>
+                        <li class="fragment">Templates. Remember using Templates in Angular?</li>
+                        <li class="fragment">Shadow DOM for better functional encapsulation & isolation</li>
+                    </ul>
+                    </p>
+                </section>
+
+                <section>
+                    <b>Angular Material Layout</b>
+                    <ul>
+                        <li>Layout heavily based on flexbox.</li>
+                        <li>
+                            Container Elements
+                            <pre><code data-trim>
+<div layout="row">
+    <div>Left</div><div>Right</div>
+</div>
+<div layout="column">
+    <div>Above</div>
+    <div>Below</div>
+</div></code></pre>
+                        </li>
+                        <li>
+                            Layout options like <i>layout-margin, layout-padding, layout-fill, layout-wrap</i> etc.
+                        </li>
+                        <li>
+                            Responsive Layouts like <i>layout-sm, layout-gt-sm, layout-md, layout-gt-md, layout-lg, layout-gt-lg</i> etc.
+                        </li>
+                        <li>
+                            Kinda like <a href="http://getbootstrap.com/">Bootstrap</a> Scaffolding
+                        </li>
+                </ul>
+                </section>
+
+                <section>
+                    <b>Angular Material Grid System</b>
+                    <ul>
+                        <li>
+                            Use <i>flex</i>, <i>offset</i> & <i>flex-order</i> attributes
+                            <pre><code data-trim>
+<div layout="row">
+    <div flex="33">
+        [flex="33"]
+    </div>
+    <div flex="66">
+        [flex="66"]
+    </div>
+    <div flex>
+        [flex]
+    </div>
+</div></code></pre>
+                        </li>
+                <li>
+                    The flex attribute value is restricted to 33, 66, and multiples of five.<br/>
+                    <i>For example: flex="5", flex="10", flex="25", "flex="33", flex="50", flex="66", flex="75", ....</i>
+                </li>
+                </ul>
+                </section>
+
+
+                <section>
+                    <h3>Angular Material Directives</h3>
+                    <ul>
+                        <li>md-autocomplete</li>
+                        <li>md-button</li>
+                        <li>md-card</li>
+                        <li>md-checkbox</li>
+                        <li>md-divider</li>
+                        <li>md-tab</li>
+                        <li>md-tabs</li>
+                        <li>md-progress-circular</li>
+                        <li>md-progress-linear</li>
+                        <li>etc.</li>
+                    </ul>
+                </section>
+
+
+                <section>
+                    <h3>Angular Material Services</h3>
+                    <ul>
+                        <li>$mdBottomSheet</li>
+                        <li>$mdDialog</li>
+                        <li>$mdIcon</li>
+                        <li>$mdToast</li>
+                        <li>$mdSidenav</li>
+                    </ul>
+                </section>
+
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				slideNumber: true,
+
+				theme: 'sky', // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
